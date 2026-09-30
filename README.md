@@ -1,60 +1,60 @@
 # noads-noshort
 
-Minimal browser extension that hides YouTube Shorts, shows reading time, and replaces ad banners with cats.
+Минималистичное расширение для браузера: скрывает YouTube Shorts, показывает время чтения и заменяет рекламные баннеры котами.
 
 ![License](https://img.shields.io/badge/license-MIT-blue)
 ![Manifest](https://img.shields.io/badge/manifest-v3-green)
 
 ![Screenshot](./docs/screenshot.png)
 
-## Features
+## Возможности
 
-**Hide YouTube Shorts** — removes the Shorts shelf from homepage, subscriptions, and sidebar, plus the menu entry.
+**Hide YouTube Shorts** — убирает раздел Shorts с главной, из подписок и боковой панели рекомендаций, а также пункт в левом меню.
 
-**Reading Time** — injects a small "~N min read" badge on article pages, calculated at 200 words/min.
+**Reading Time** — добавляет на страницы статей небольшую плашку «~N мин чтения», считая по 200 слов в минуту.
 
-**Cats instead of ads** — swaps elements matching ad/banner/sponsored patterns for random cat photos.
+**Cats instead of ads** — заменяет элементы, похожие на рекламу (ad, banner, sponsored и т. п.), случайными фотографиями котов.
 
-## Install
+## Установка
 
 ### Chrome / Edge / Brave
-1. Download the latest release from Releases and unzip.
-2. Open chrome://extensions and enable Developer mode.
-3. Click "Load unpacked" and select the unzipped folder.
+1. Скачайте последний релиз из раздела Releases и распакуйте архив.
+2. Откройте chrome://extensions и включите режим разработчика.
+3. Нажмите «Загрузить распакованное расширение» и выберите распакованную папку.
 
 ### Firefox
-1. Open about:debugging#/runtime/this-firefox.
-2. Click "Load Temporary Add-on" and select manifest.json.
+1. Откройте about:debugging#/runtime/this-firefox.
+2. Нажмите «Загрузить временное дополнение» и выберите manifest.json.
 
-## Development
+## Разработка
 
-No build step, no dependencies. Edit files in src/ and reload the extension.
+Без сборки и зависимостей. Правьте файлы в src/ и перезагружайте расширение.
 
-Settings are stored in chrome.storage.sync (browser.storage on Firefox):
+Настройки хранятся в chrome.storage.sync (в Firefox — browser.storage):
 
-- hideShorts — default true
-- readingTime — default true
-- catAds — default false
+- hideShorts — по умолчанию true
+- readingTime — по умолчанию true
+- catAds — по умолчанию false
 
-To create a release zip manually:
+Чтобы вручную собрать zip для релиза:
 
 ```
 zip -r noads-noshort.zip manifest.json src icons
 ```
 
-Pushing a tag v* triggers the GitHub Action that builds and publishes a release.
+Пуш тега v* запускает GitHub Action, который собирает и публикует релиз.
 
-## Structure
+## Структура
 
 ```
 manifest.json
 src/content/    youtube-shorts, reading-time, cat-ads, injector
 src/popup/      popup.html, popup.css, popup.js
 src/background/ service worker
-src/shared/     storage wrapper
-icons/          SVG icons
+src/shared/     обёртка над storage
+icons/          SVG-иконки
 ```
 
-## License
+## Лицензия
 
-MIT — see LICENSE.
+MIT — см. файл LICENSE.
