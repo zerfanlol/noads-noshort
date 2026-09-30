@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "noads-noshort",
+  "version": "1.0.0",
+  "description": "Minimal browser extension: hide YouTube Shorts, show reading time, replace ads with cats.",
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": ["*://*.youtube.com/*", "<all_urls>"],
+  "action": {
+    "default_popup": "src/popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.svg",
+      "48": "icons/icon48.svg",
+      "128": "icons/icon128.svg"
+    }
+  },
+  "background": {
+    "service_worker": "src/background/service-worker.js",
+    "scripts": ["src/background/service-worker.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["src/shared/storage.js", "src/content/youtube-shorts.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "src/shared/storage.js",
+        "src/content/reading-time.js",
+        "src/content/cat-ads.js",
+        "src/content/injector.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.svg",
+    "48": "icons/icon48.svg",
+    "128": "icons/icon128.svg"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "noads-noshort@example.com",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  }
+}

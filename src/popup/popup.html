@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=280">
+  <title>noads-noshort</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main>
+    <label class="row" for="t-hideShorts">
+      <span>Hide YouTube Shorts</span>
+      <input type="checkbox" id="t-hideShorts" class="switch">
+    </label>
+    <label class="row" for="t-readingTime">
+      <span>Reading Time</span>
+      <input type="checkbox" id="t-readingTime" class="switch">
+    </label>
+    <label class="row" for="t-catAds">
+      <span>Cats instead of ads</span>
+      <input type="checkbox" id="t-catAds" class="switch">
+    </label>
+  </main>
+  <footer>
+    <a href="https://github.com/your-username/noads-noshort" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <span id="saved" role="status" aria-live="polite">Saved</span>
+    <span class="version">v1.0.0</span>
+  </footer>
+  <script src="../shared/storage.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
