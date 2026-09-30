@@ -5,7 +5,7 @@
 ![License](https://img.shields.io/badge/license-MIT-blue)
 ![Manifest](https://img.shields.io/badge/manifest-v3-green)
 
-<img src="image.png" width="400" />
+<img src="icons/image.png" width="400" />
 
 ## Возможности
 
